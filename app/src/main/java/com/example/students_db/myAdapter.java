@@ -12,11 +12,11 @@ import java.util.List;
 public class myAdapter extends RecyclerView.Adapter<myHolder> {
 
     Context context;
-    List<Student> items;
+    List<Student> students;
 
-    public myAdapter(Context context, List<Student> items) {
+    public myAdapter(Context context, List<Student> students) {
         this.context = context;
-        this.items = items;
+        this.students = students;
     }
 
     @NonNull
@@ -27,15 +27,15 @@ public class myAdapter extends RecyclerView.Adapter<myHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull myHolder holder, int position) {
-        holder.idView.setText(items.get(position).getId());
-        holder.nameView.setText(items.get(position).getName());
-        holder.adsressView.setText(items.get(position).getAddress());
-        holder.ageView.setText(items.get(position).getAge());
-        holder.gradesView.setText(items.get(position).getGrades());
+        holder.idView.setText(String.valueOf(students.get(position).getId()));
+        holder.nameView.setText(String.valueOf((students.get(position).getName())));
+        holder.adsressView.setText(String.valueOf((students.get(position).getAddress())));
+        holder.ageView.setText(String.valueOf(students.get(position).getAge()));
+        holder.gradesView.setText(String.valueOf(students.get(position).getGrades()));
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return students.size();
     }
 }

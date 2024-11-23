@@ -92,22 +92,7 @@
         android:layout_height="wrap_content"
         android:text="Button show all" />
 
-    <ListView
-        android:id="@+id/lv"
-        android:layout_width="match_parent"
-        android:layout_height="150dp" />
 
-<!--  <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/recyclerView"-->
-<!--        />-->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/purpul"
-        />
 
 </LinearLayout>

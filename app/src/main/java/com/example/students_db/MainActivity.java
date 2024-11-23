@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         et_deleteID=findViewById(R.id.edDeleteID);
         etIDUpdt=findViewById(R.id.edStdntUpdate);
         etGradesUpdt=findViewById(R.id.etGradesUpdate);
-        lv=findViewById(R.id.lv);
-        tv=findViewById(R.id.textView);
-    //   recyclerView=findViewById(R.id.recyclerView);
+
+
+
 
         btn_add=findViewById(R.id.btnAdd);
         btn_del=findViewById(R.id.btnDeleteID);
@@ -85,16 +86,15 @@ public class MainActivity extends AppCompatActivity {
     buttonshowall.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            SQLopenHelpler  db=new SQLopenHelpler(MainActivity.this) ;
-            List<Student> students=db.getAllStudents();
-            ArrayAdapter studntadptr = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
-            lv.setAdapter(studntadptr);
+
+            Intent intent=new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
+
+       //     ArrayAdapter studntadptr = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
+      //      lv.setAdapter(studntadptr);
        //   recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
       //     recyclerView.setAdapter(new myAdapter(getApplicationContext(),students));
         //   Toast.makeText(MainActivity.this,students.toString(),Toast.LENGTH_SHORT).show();
-            Student topstudent=db.getTopStudent();
-        //  Toast.makeText(MainActivity.this,"The student with the highest average is:"+topstudent.toString(),Toast.LENGTH_LONG);
-            tv.setText("The student with the highest average is ID:"+topstudent.getId()+",Name:"+topstudent.getName()+",Average:"+topstudent.getAverageGrade());
 
 
         }

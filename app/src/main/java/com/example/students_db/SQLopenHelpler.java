@@ -85,8 +85,8 @@ public class SQLopenHelpler extends SQLiteOpenHelper {
 
     }
 
-    public List<Student> getAllStudents() {
-        List<Student> ls=new ArrayList<>();
+    public ArrayList<Student> getAllStudents() {
+        ArrayList<Student> ls=new ArrayList<>();
         String queryStr = "SELECT * FROM " + TABLE_STUDENT;
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryStr,null);
