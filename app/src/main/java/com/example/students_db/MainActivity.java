@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private SQLopenHelpler dbHelper;
     private ArrayList<Student> studentList;
     EditText et_name, et_age, et_address,et_grades, et_deleteID,etIDUpdt,etGradesUpdt;
-    //ListView lv;
+    ListView lv;
     TextView tv;
     RecyclerView recyclerView;
     @Override
@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         et_deleteID=findViewById(R.id.edDeleteID);
         etIDUpdt=findViewById(R.id.edStdntUpdate);
         etGradesUpdt=findViewById(R.id.etGradesUpdate);
-        //lv=findViewById(R.id.lv);
+        lv=findViewById(R.id.lv);
         tv=findViewById(R.id.textView);
-       recyclerView=findViewById(R.id.recyclerView);
+    //   recyclerView=findViewById(R.id.recyclerView);
 
         btn_add=findViewById(R.id.btnAdd);
         btn_del=findViewById(R.id.btnDeleteID);
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this,"inserted to the database",Toast.LENGTH_SHORT).show();
         }
     });
-        
+
     btn_del.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
             SQLopenHelpler  db=new SQLopenHelpler(MainActivity.this) ;
             List<Student> students=db.getAllStudents();
             ArrayAdapter studntadptr = new ArrayAdapter<Student>(MainActivity.this, android.R.layout.simple_list_item_1,students);
-            //lv.setAdapter(studntadptr);
-          recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-           recyclerView.setAdapter(new myAdapter(getApplicationContext(),students));
+            lv.setAdapter(studntadptr);
+       //   recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+      //     recyclerView.setAdapter(new myAdapter(getApplicationContext(),students));
         //   Toast.makeText(MainActivity.this,students.toString(),Toast.LENGTH_SHORT).show();
             Student topstudent=db.getTopStudent();
         //  Toast.makeText(MainActivity.this,"The student with the highest average is:"+topstudent.toString(),Toast.LENGTH_LONG);
